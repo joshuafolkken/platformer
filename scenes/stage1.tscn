@@ -46,3 +46,8 @@ position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_b1kto")]
+position = Vector2(208, 488)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_b1kto")]
+move_speed = 150
+can_tread = true
