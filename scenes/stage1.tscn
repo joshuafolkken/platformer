@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://f27as1cep5mg"]
 
-[ext_resource type="Script" uid="uid://sxslcxicaxn2" path="res://scripts/character.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://sxslcxicaxn2" path="res://scripts/character.gd" id="1_v53cv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1152, 32)
@@ -8,17 +8,17 @@ size = Vector2(1152, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(42, 42)
 
-[node name="Main" type="Node2D"]
+[node name="Stage1" type="Node2D"]
 
-[node name="Ground" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+[node name="Shape" type="CollisionShape2D" parent="Platform"]
 position = Vector2(576, 632)
 shape = SubResource("RectangleShape2D_0wfyh")
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Ground"]
+[node name="Rect" type="ColorRect" parent="Platform"]
 offset_top = 616.0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -26,14 +26,17 @@ metadata/_edit_lock_ = true
 
 [node name="Character" type="CharacterBody2D" parent="."]
 position = Vector2(560, 304)
-script = ExtResource("1_o5qli")
+script = ExtResource("1_v53cv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Character"]
+[node name="Shape" type="CollisionShape2D" parent="Character"]
 position = Vector2(19, 19)
 shape = SubResource("RectangleShape2D_sugp2")
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="Character"]
+[node name="Rect" type="ColorRect" parent="Character"]
 offset_right = 40.0
 offset_bottom = 40.0
 metadata/_edit_lock_ = true
+
+[node name="Camera" type="Camera2D" parent="Character"]
+position_smoothing_enabled = true
