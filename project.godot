@@ -16,6 +16,10 @@ run/main_scene="uid://f27as1cep5mg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Audio="*res://scenes/audio.tscn"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=1

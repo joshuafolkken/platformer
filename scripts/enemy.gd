@@ -25,4 +25,5 @@ func _is_treaded_by_character(body: Node2D) -> bool:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if _is_treaded_by_character(body):
+		Audio.get_node("Hit").play()
 		queue_free()
