@@ -24,6 +24,7 @@ color = Color(1, 0, 0, 1)
 metadata/_edit_lock_ = true
 
 [node name="Area2D" type="Area2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="Shape" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(20, 0)
