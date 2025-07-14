@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://f27as1cep5mg"]
+[gd_scene load_steps=7 format=3 uid="uid://f27as1cep5mg"]
 
 [ext_resource type="Script" uid="uid://bmhm13t5cfb6j" path="res://scripts/stage_1.gd" id="1_b4cv3"]
 [ext_resource type="Script" uid="uid://sxslcxicaxn2" path="res://scripts/character.gd" id="1_v53cv"]
 [ext_resource type="PackedScene" uid="uid://1ajrxx8nj7g3" path="res://scenes/enemy.tscn" id="2_b1kto"]
+[ext_resource type="PackedScene" uid="uid://behitpc4vyp3t" path="res://scenes/coin.tscn" id="4_ft3hr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0wfyh"]
 size = Vector2(1152, 32)
@@ -29,8 +30,9 @@ offset_bottom = 648.0
 metadata/_edit_lock_ = true
 
 [node name="Character" type="CharacterBody2D" parent="."]
-position = Vector2(560, 304)
+position = Vector2(16, 576)
 script = ExtResource("1_v53cv")
+metadata/_edit_lock_ = true
 
 [node name="Shape" type="CollisionShape2D" parent="Character"]
 position = Vector2(19, 19)
@@ -48,8 +50,33 @@ position_smoothing_enabled = true
 metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_b1kto")]
-position = Vector2(208, 488)
+position = Vector2(544, 576)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_b1kto")]
+position = Vector2(1112, 0)
 move_speed = 150
 can_tread = true
+
+[node name="Coin" parent="." instance=ExtResource("4_ft3hr")]
+offset_left = 184.0
+offset_top = 496.0
+offset_right = 224.0
+offset_bottom = 536.0
+
+[node name="Coin2" parent="." instance=ExtResource("4_ft3hr")]
+offset_left = 624.0
+offset_top = 432.0
+offset_right = 664.0
+offset_bottom = 472.0
+
+[node name="Coin3" parent="." instance=ExtResource("4_ft3hr")]
+offset_left = 704.0
+offset_top = 360.0
+offset_right = 744.0
+offset_bottom = 400.0
+
+[node name="Coin4" parent="." instance=ExtResource("4_ft3hr")]
+offset_left = 808.0
+offset_top = 360.0
+offset_right = 848.0
+offset_bottom = 400.0
