@@ -1,6 +1,8 @@
 extends Node2D
 
+@onready var _audio: Audio = AudioScene
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	(Audio.get_node("BGM") as AudioStreamPlayer).play()
+	_audio.play_bgm()
