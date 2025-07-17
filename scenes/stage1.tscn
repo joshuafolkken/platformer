@@ -51,11 +51,10 @@ metadata/_edit_lock_ = true
 
 [node name="Enemy" parent="." instance=ExtResource("2_b1kto")]
 position = Vector2(544, 576)
+_can_tread = true
 
 [node name="Enemy2" parent="." instance=ExtResource("2_b1kto")]
 position = Vector2(1112, 0)
-move_speed = 150
-can_tread = true
 
 [node name="Coin" parent="." instance=ExtResource("4_ft3hr")]
 offset_left = 184.0

@@ -4,8 +4,8 @@ extends Node
 var _test_color_rect: ColorRect
 var _timer: Timer
 
-@onready var version_label: Label = $VersionLabel
-@onready var datetime_label: Label = $DateTimeLabel
+@onready var _version_label: Label = $VersionLabel
+@onready var _datetime_label: Label = $DateTimeLabel
 
 
 func _init() -> void:
@@ -24,7 +24,7 @@ func _init_timer() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	version_label.text = "v%s" % ProjectSettings.get_setting("application/config/version")
+	_version_label.text = "v%s" % ProjectSettings.get_setting("application/config/version")
 	_timer.start()
 	_update_datetime()
 
@@ -41,7 +41,7 @@ func _on_timer_timeout() -> void:
 func _update_datetime() -> void:
 	var datetime := Time.get_datetime_dict_from_system()
 	var format := tr("DATETIME_FORMAT")
-	datetime_label.text = (
+	_datetime_label.text = (
 		format
 		% [
 			datetime.year,

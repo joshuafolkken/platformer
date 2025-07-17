@@ -4,6 +4,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 const FRICTION = 20.0
 
+@onready var _audio: Audio = AudioScene
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -12,7 +14,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		(Audio.get_node("Jump") as AudioStreamPlayer).play()
+		_audio.play_jump()
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
