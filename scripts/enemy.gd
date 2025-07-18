@@ -16,18 +16,25 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func _is_treaded_by_character(body: Node2D) -> bool:
-	if not _can_tread:
-		return false
-
-	if body.name != "Character":
-		return false
-
-	return true
+func _is_character(body: Node2D) -> bool:
+	return body.name == "Character"
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if _is_treaded_by_character(body):
-		_ui.heal(10)
-		_audio.play_hit()
-		queue_free()
+	if not _can_tread:
+		return
+
+	if !_is_character(body):
+		return
+
+	_ui.heal(10)
+	_audio.play_hit()
+	queue_free()
+
+
+func _on_enemy_hit_box_body_entered(body: Node2D) -> void:
+	if !_is_character(body):
+		return
+
+	(body as Character).apply_knock_back()
+	_ui.damage(10)
