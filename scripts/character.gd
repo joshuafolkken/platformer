@@ -1,8 +1,11 @@
+class_name Character
 extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -1000.0
 const FRICTION = 20.0
+
+var _can_move := true
 
 @onready var _audio: Audio = AudioScene
 
@@ -20,9 +23,19 @@ func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
+	if !_can_move:
+		pass
+	elif direction:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, FRICTION)
 
 	move_and_slide()
+
+
+func apply_knock_back() -> void:
+	_can_move = false
+
+	velocity = Vector2(-200, -300)
+	await get_tree().create_timer(0.5).timeout
+	_can_move = true
